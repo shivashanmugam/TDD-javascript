@@ -1,0 +1,19 @@
+<html>
+<body>
+    <div id='myDiv'></div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src='./flickr-fetcher.js'></script>
+<script src='./photo-lister.js'></script>
+<script>
+    flickerFetcher.fetchPhotos('8060d4cdac3ceb86af470aae29af3a56')
+    .then(photoLister.photoToListToHTML)
+    .then(function(photoListHTML){
+        const selector = '#myDiv';
+        photoLister.addPhotosToElement(jQuery, selector, photoListHTML);
+    })
+</script>
+</html>
